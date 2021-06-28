@@ -1,5 +1,5 @@
 
-import { Injectable }     from '@angular/core';
+import { Injectable, SystemJsNgModuleLoader }     from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -42,7 +42,10 @@ export class ReservasService{
     // return this.http.get<Hotel[]>(this.urlHoteles+"hoteles");
   }
   public getVuelos(plazas:number){
-    return this.http.get<Vuelo[]>(this.urlVuelos+"vuelos/"+plazas);
+    console.log(plazas);
+    console.log(this.urlVuelos+"vuelos/"+plazas);
+    return this.http.get<Vuelo[]>(this.urlVuelos+"vuelos/8");
+//  return this.http.get<Candidato[]>(this.url+"eliminar",{params:{idCandidato:id}});
   }
 }
 

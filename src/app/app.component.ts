@@ -14,6 +14,7 @@ export class AppComponent {
   hoteles:Hotel[];
   vuelos:Vuelo[];
   plazas:number;
+
   constructor(private service:ReservasService){}
 
   ngOnInit() {
@@ -22,8 +23,12 @@ export class AppComponent {
   listado(){
    this.service.getHoteles().subscribe(data=>this.hoteles=data);
   }
-  getVuelos(plazas:number){
-    this.service.getVuelos(plazas).subscribe(data=>this.vuelos=data);
-  }
+  getVuelos(){
+    console.log(this.plazas);
+    this.service.getVuelos(this.plazas).subscribe(data=>this.vuelos=data);
+    this.vuelos.forEach(element => console.log(element));
+
+
+    }
 
 }
