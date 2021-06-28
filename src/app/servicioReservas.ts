@@ -44,7 +44,11 @@ export class ReservasService{
   public getVuelos(plazas:number){
     console.log(plazas);
     console.log(this.urlVuelos+"vuelos/"+plazas);
-    return this.http.get<Vuelo[]>(this.urlVuelos+"vuelos/8");
+    return this.http.get<Vuelo[]>(this.urlVuelos+"vuelos/plazas");
+    /* Metodo controlador:
+    @GetMapping(value="vuelos/{plazas}", produces=MediaType.APPLICATION_JSON_VALUE)
+		public List<Vuelo> vuelos (@PathVariable("plazas") Integer plazas) {
+    */
 //  return this.http.get<Candidato[]>(this.url+"eliminar",{params:{idCandidato:id}});
   }
 }
